@@ -7,15 +7,15 @@ const LOGGED_OUT = "loggedOut";
 const LOGGED_IN = "loggedIn";
 
 const logIn = (nickname) => {
-  const socket = io("/");
-  socket.emit("setNickname", { nickname });
+  window.socket = io("/");
+  window.socket.emit(window.events.setNickname, { nickname });
 };
 
 if (nickname === null) {
   body.className = LOGGED_OUT;
 } else {
   body.className = LOGGED_IN;
-  login(nickname);
+  logIn(nickname);
 }
 
 const handleFormSubmit = (e) => {
