@@ -4,6 +4,7 @@ import autoprefixer from "gulp-autoprefixer";
 import minifyCSS from "gulp-csso";
 import del from "del";
 import browserify from "gulp-browserify";
+import babel from "babelify";
 
 sass.complier = require("node-sass");
 
@@ -21,7 +22,18 @@ const paths = {
 };
 
 const js = () =>
-  gulp.src(paths.js.src).pipe(browserify()).pipe(gulp.dest(paths.js.dest));
+  gulp
+    .src(paths.js.src)
+    .pipe(
+      browserify({
+        transform: [
+          babel.configure({
+            presets: ["@babel/preset-env"],
+          }),
+        ],
+      })
+    )
+    .pipe(gulp.dest(paths.js.dest));
 
 function clean() {
   return del(["src/static"]);
@@ -47,5 +59,7 @@ const watchFiles = () => {
 };
 
 const dev = gulp.series(clean, styles, js, watchFiles);
+
+export const build = gulp.series(clean, styles, js);
 
 export default dev;
