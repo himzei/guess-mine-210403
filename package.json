@@ -1,0 +1,19 @@
+{
+  "name": "guess-mine-210403",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/himzei/guess-mine-210403",
+  "author": "himzei <himzei@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.13.12",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "socket.io": "^4.0.1"
+  },
+  "scripts": {
+    "dev:server": "nodemon --exec  babel-node src/server"
+  }
+}
