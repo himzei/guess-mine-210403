@@ -12,6 +12,8 @@
     "@babel/register": "^7.13.14",
     "express": "^4.17.1",
     "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-csso": "^4.0.1",
     "gulp-sass": "^4.1.0",
     "gulp-scss": "^1.4.0",
     "morgan": "^1.10.0",
@@ -22,6 +24,6 @@
   },
   "scripts": {
     "dev:server": "nodemon --exec  babel-node src/server",
-    "build:styles": "gulp styles"
+    "dev:assets": "gulp"
   }
 }
