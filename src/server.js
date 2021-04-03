@@ -17,10 +17,6 @@ const handleListening = () =>
 const server = app.listen(PORT, handleListening);
 const io = socketIO(server);
 
-let sockets = [];
-
 io.on("connection", (socket) => {
-  sockets.push(socket.id);
+  socket.on("helloGuys", () => console.log("the client say hello"));
 });
-
-setInterval(() => console.log(sockets), 1000);
